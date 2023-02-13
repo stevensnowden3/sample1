@@ -23,11 +23,6 @@ export default async (req, res) => {
 
     const response = await fetch(API_URL, requestOptions);
     const result = await response.text();
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
     res.status(200).json({ success: true, data: result });
   } catch (error) {
     res.status(500).json({ success: false, error });
